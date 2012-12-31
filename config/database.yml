@@ -1,0 +1,18 @@
+defaults: &defaults
+  adapter: mysql2
+  username: 'root'
+  password: "password"
+  host: localhost
+
+development:
+  <<: *defaults
+  database: depot_development
+
+test:
+  <<: *defaults
+  database: depot_test
+
+
+production:
+  <<: *defaults
+  database: depot_prod
