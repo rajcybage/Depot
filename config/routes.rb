@@ -1,10 +1,19 @@
 Depot::Application.routes.draw do
 
-  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+  get "admin/index"
 
-  devise_for :users
+  #mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
+  get 'admin' => 'admin#index'
 
-  
+  #devise_for :users
+
+  controller :sessions do
+  get 'login' => :new
+  post 'login' => :create
+  delete 'logout' => :destroy
+  end
+  resources :users
+
 
   # controller :sessions do
   #   get    'login'  => :new
